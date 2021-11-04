@@ -1,44 +1,36 @@
-<template>
-  <div class="events_notification">
-    <span class="events_text">TODAY</span>
-    <div class="event_done">
-          <span class="event_text">
-              Darika Samak mark as done Listing on Product Hunt so that<br>we can reach as many potential users
-          </span>
-    </div>
-
-    <div class="event_message">
-          <span class="event_text">
-              Emilee Simchenko commented on Account for teams and <br>personal in bottom style
-          </span>
-      <div class="event_message_note">
-            <span>
-                During a project build, it is necessary to evaluate the product design<br>and development against project requirements and outcomes
-            </span>
-      </div>
-    </div>
-    <div class="event_download">
-      <div class="event_download_main">
-            <span class="event_text">
-                Darika Samak uploaded 4 files on An option to search in<br>current projects or in all projects
-            </span>
-      </div>
-      <div class="event_download_picture" id="event_download_picture">
-        <img v-for="image in images" :key="image.link" :src="image.link" :alt="image.alt">
-      </div>
-    </div>
-  </div>
-  <div class="event_time">
-        <span>
-            8:40 PM
-        </span>
-    <span>
-            7:32 PM
-        </span>
-    <span>
-            6:02 PM
-        </span>
-  </div>
+<template lang="pug">
+.events_notification
+  span.events_text TODAY
+  .event_done
+    span.event_text
+      | Darika Samak mark as done Listing on Product Hunt so that
+      br
+      | we can reach as many potential users
+  .event_message
+    span.event_text
+      | Emilee Simchenko commented on Account for teams and
+      br
+      | personal in bottom style
+    .event_message_note
+      span
+        | During a project build, it is necessary to evaluate the product design
+        br
+        | and development against project requirements and outcomes
+  .event_download
+    .event_download_main
+      span.event_text
+        | Darika Samak uploaded 4 files on An option to search in
+        br
+        | current projects or in all projects
+    #event_download_picture.event_download_picture
+      img(v-for='image in images' :key='image.link' :src='image.link' :alt='image.alt')
+.event_time
+  span
+    | 8:40 PM
+  span
+    | 7:32 PM
+  span
+    | 6:02 PM
 </template>
 
 <script lang="ts">

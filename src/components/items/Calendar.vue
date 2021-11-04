@@ -1,7 +1,6 @@
-<template>
-  <div>
-   Calendar
-  </div>
+<template lang="pug">
+div
+  |Calendar
 </template>
 
 <script lang="ts">

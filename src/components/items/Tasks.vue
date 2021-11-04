@@ -1,18 +1,11 @@
-<template>
-  <div class="tasks">
-    <div id="myDIV" class="header">
-      <h2>My To Do List</h2>
-      <input type="text" id="myInput" placeholder="Title..." v-model="taskName">
-      <span @click="newTask()" class="addBtn" >Add</span>
-    </div>
-
-    <ul id="myUL">
-      <Task v-for="task in tasks"
-            :key="task.id"
-            :task="task"
-      />
-    </ul>
-  </div>
+<template lang="pug">
+.tasks
+  #myDIV.header
+    h2 My To Do List
+    input#myInput(type='text' placeholder='Title...' v-model='taskName')
+    span.addBtn(@click='newTask()') Add
+  ul#myUL
+    task(v-for='task in tasks' :key='task.id' :task='task')
 </template>
 
 <script lang="ts">

@@ -1,7 +1,6 @@
-<template>
-  <div>
-   Files
-  </div>
+<template lang="pug">
+div
+  |Files
 </template>
 
 <script lang="ts">

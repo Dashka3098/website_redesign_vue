@@ -1,5 +1,5 @@
-<template>
-      <ol> {{ task.name }}</ol>
+<template lang="pug">
+ol  {{ task.name }}
 </template>
 
 <script lang="ts">

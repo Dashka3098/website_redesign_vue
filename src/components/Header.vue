@@ -1,34 +1,24 @@
-<template>
-     <header class="website_redesign_header">
-            <div class="main_menu">
-                <div class="website_redesign_logo">
-                    <button class="openbtn" id="burger">☰</button>
-                    <span class="website_redesign_logo_text">Website Redesign</span>
-                    <div class="meatball_circle">
-                        <span class="meatball_dot"></span>
-                        <span class="meatball_dot"></span>
-                        <span class="meatball_dot"></span>
-                    </div>
-                </div>
-                <div class="menu_items">
-                     <div class="item" v-for="item in items" :key="item" v-on:click="activeMenu" :class="{ active: item === 'Activity' }">
-                         <router-link :to="{path: item.toLowerCase()}">
-                            {{ item }}
-                        </router-link>
-                     </div>
-                </div>
-
-            </div>
-            <div class="members">
-                <div class="members_photo">
-                    <img src="../assets/woman_1.jpg" alt="woman_1">
-                    <img src="../assets/woman_2.jpg" alt="woman_2">
-                    <img src="../assets/woman_3.jpg" alt="woman_3">
-                </div>
-                <button class="members_share">Share</button>
-                <button class="members_chat">Chat</button>
-            </div>
-        </header>
+<template lang="pug">
+header.website_redesign_header
+  .main_menu
+    .website_redesign_logo
+      button#burger.openbtn ☰
+      span.website_redesign_logo_text Website Redesign
+      .meatball_circle
+        span.meatball_dot
+        span.meatball_dot
+        span.meatball_dot
+    .menu_items
+      .item(v-for='item in items' :key='item' v-on:click='activeMenu' :class="{ active: item === 'Activity' }")
+        router-link(:to='{path: item.toLowerCase()}')
+          | {{ item }}
+  .members
+    .members_photo
+      img(src='../assets/woman_1.jpg' alt='woman_1')
+      img(src='../assets/woman_2.jpg' alt='woman_2')
+      img(src='../assets/woman_3.jpg' alt='woman_3')
+    button.members_share Share
+    button.members_chat Chat
 </template>
 
 <script lang="ts">

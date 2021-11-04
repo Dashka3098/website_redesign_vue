@@ -1,7 +1,6 @@
-<template>
-  <div>
-    Kanban
-  </div>
+<template lang="pug">
+div
+  |Kanban
 </template>
 
 <script lang="ts">

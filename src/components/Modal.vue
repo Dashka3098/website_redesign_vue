@@ -1,24 +1,15 @@
-<template>
-  <transition name="modal">
-    <div class="modal-mask">
-      <div class="modal-wrapper">
-        <div class="modal-container">
-          <div class="modal-body">
-            <p>Are you sure you want to change the number of tasks?</p>
-          </div>
-
-          <div class="modal-footer">
-              <button class="modal-default-button" @click="$emit('close')">
-                Close
-              </button>
-            <button class="modal-default-button" @click="$emit('countTasks')">
-              OK
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </transition>
+<template lang="pug">
+transition(name='modal')
+  .modal-mask
+    .modal-wrapper
+      .modal-container
+        .modal-body
+          p Are you sure you want to change the number of tasks?
+        .modal-footer
+          button.modal-default-button(@click="$emit('close')")
+            | Close
+          button.modal-default-button(@click="$emit('countTasks')")
+            | OK
 </template>
 
 <script>

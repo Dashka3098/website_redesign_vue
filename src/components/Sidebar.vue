@@ -1,54 +1,36 @@
-<template>
-  <div class="sidebar" id="sidebar" ref="sidebar">
-    <div class="header">
-      <div class="header_logo">
-        <span class="header_text">PROJECTUS</span>
-      </div>
-      <button class="header_search"></button>
-    </div>
-
-    <div class="profile">
-      <img src="../assets/photo.jpg" class="profile_image" alt="photo">
-      <div class="profile_text">
-        <span class="profile_text_name">Jean Gonzales</span>
-        <span class="profile_text_position">Product Owner</span>
-      </div>
-      <div class="meatball">
-        <span class="meatball_dot"></span>
-        <span class="meatball_dot"></span>
-        <span class="meatball_dot"></span>
-      </div>
-    </div>
-
-    <div class="tasks">
-      <div class="tasks_completed" id="tasks_completed" @click="showModal = true">
-                <span class="tasks_completed_number" id="tasks_completed_number">
-                  {{ completedTasks }}
-                  </span>
-        <span class="tasks_completed_name">Completed Tasks</span>
-      </div>
-      <div class="tasks_open">
-                <span class="tasks_open_number" id="tasks_open_number">
-                  {{ openTasks }}
-                </span>
-        <span class="tasks_open_name">Open Tasks</span>
-      </div>
-    </div>
-
-    <Modal v-if="showModal" @close="showModal = false" @count-tasks="countTasks"></Modal>
-
-    <div class="menu">
-      <span class="menu_text">Menu</span>
-      <a href="#" class="menu_home">Home</a>
-      <a href="#" class="menu_my_tasks">My Tasks</a>
-      <div class="menu_notification">
-        <a href="#" class="menu_notification_text">Notifications</a>
-        <div class="menu_notification_badge" id="menu_notification_badge">
-          {{ notification }}
-        </div>
-      </div>
-    </div>
-  </div>
+<template lang="pug">
+#sidebar.sidebar(ref='sidebar')
+  .header
+    .header_logo
+      span.header_text PROJECTUS
+    button.header_search
+  .profile
+    img.profile_image(src='../assets/photo.jpg' alt='photo')
+    .profile_text
+      span.profile_text_name Jean Gonzales
+      span.profile_text_position Product Owner
+    .meatball
+      span.meatball_dot
+      span.meatball_dot
+      span.meatball_dot
+  .tasks
+    #tasks_completed.tasks_completed(@click='showModal = true')
+      span#tasks_completed_number.tasks_completed_number
+        | {{ completedTasks }}
+      span.tasks_completed_name Completed Tasks
+    .tasks_open
+      span#tasks_open_number.tasks_open_number
+        | {{ openTasks }}
+      span.tasks_open_name Open Tasks
+  modal(v-if='showModal' @close='showModal = false' @count-tasks='countTasks')
+  .menu
+    span.menu_text Menu
+    a.menu_home(href='#') Home
+    a.menu_my_tasks(href='#') My Tasks
+    .menu_notification
+      a.menu_notification_text(href='#') Notifications
+      #menu_notification_badge.menu_notification_badge
+        | {{ notification }}
 </template>
 
 <script lang="ts">
@@ -62,7 +44,7 @@ export default defineComponent({
   },
   data() {
     return {
-      openTasks: 1,
+      openTasks: 11,
       completedTasks: 372,
       notification: 3,
       showModal: false,
