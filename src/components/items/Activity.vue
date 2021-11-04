@@ -1,6 +1,7 @@
 <template lang="pug">
 .events_notification
-  span.events_text TODAY
+  span.events_text
+    | TODAY
   .event_done
     span.event_text
       | Darika Samak mark as done Listing on Product Hunt so that
@@ -64,7 +65,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-.events_notification {
+.events_notofication {
   display: flex;
   flex-direction: column;
   padding-left: 30px;
@@ -75,23 +76,22 @@ export default defineComponent({
   margin-top: 86px;
   display: flex;
   flex-direction: column;
-}
 
-.event_time > span {
-  opacity: 0.7;
-  font-family: Helvetica, sans-serif;
-  font-size: 14px;
-  color: #131313;
-  text-align: right;
-  line-height: 20px;
-}
+  > span {
+    opacity: 0.7;
+    font-family: Helvetica, sans-serif;
+    font-size: 14px;
+    color: #131313;
+    text-align: right;
+    line-height: 20px;
 
-.event_time > span:nth-child(2n) {
-  margin-top: 50px;
-}
-
-.event_time > span:last-child {
-  margin-top: 158px;
+    &:nth-child(2n) {
+      margin-top: 50px;
+    }
+    &:last-child {
+      margin-top: 158px;
+    }
+  }
 }
 
 .events_text {
@@ -106,25 +106,25 @@ export default defineComponent({
   display: flex;
   margin-top: 32px;
   justify-content: left;
-}
 
-.event_done span {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 0;
-}
+  span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0;
 
-.event_done span::before {
-  background-color: #cef9c6;
-  display: inline-block;
-  margin-right: 20px;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  text-align: center;
-  line-height: 40px;
-  content: url("../../assets/Icon@3x.svg");
+    &::before {
+      background-color: #cef9c6;
+      display: inline-block;
+      margin-right: 20px;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      text-align: center;
+      line-height: 40px;
+      content: url("../../assets/Icon@3x.svg");
+    }
+  }
 }
 
 .event_img {
@@ -150,24 +150,24 @@ export default defineComponent({
   margin-top: 32px;
   justify-content: left;
   flex-direction: column;
-}
 
-.event_message > span {
-  display: flex;
-  align-items: center;
-  margin-left: 0;
-}
+    > span {
+    display: flex;
+    align-items: center;
+    margin-left: 0;
 
-.event_message > span::before {
-  background-color: #fff8dd;
-  display: inline-block;
-  margin-right: 20px;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  text-align: center;
-  line-height: 50px;
-  content: url("../../assets/Icon_message.png");
+    &::before {
+      background-color: #fff8dd;
+      display: inline-block;
+      margin-right: 20px;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      text-align: center;
+      line-height: 50px;
+      content: url("../../assets/Icon_message.png");
+    }
+  }
 }
 
 .event_message_note {
@@ -180,12 +180,12 @@ export default defineComponent({
   justify-content: center;
   align-items: center;
   margin-top: 20px;
-}
 
-.event_message_note > span {
-  font-family: Helvetica, sans-serif;
-  font-size: 15px;
-  color: #131313;
+  > span {
+    font-family: Helvetica, sans-serif;
+    font-size: 15px;
+    color: #131313;
+  }
 }
 
 .event_download {
@@ -193,46 +193,47 @@ export default defineComponent({
   margin-top: 32px;
   justify-content: left;
   flex-direction: column;
-}
 
-.event_download_main {
-  display: flex;
-  justify-content: left;
-}
+  &_main {
+    display: flex;
+    justify-content: left;
 
-.event_download_main span {
-  display: flex;
-  justify-content: left;
-  margin-left: 0;
-}
+    span {
+      display: flex;
+      justify-content: left;
+      margin-left: 0;
 
-.event_download_main span::before {
-  background-color: #e3efff;
-  display: inline-block;
-  margin-right: 20px;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  text-align: center;
-  line-height: 50px;
-  content: url("../../assets/Icon_download.png");
+      &::before {
+        background-color: #e3efff;
+        display: inline-block;
+        margin-right: 20px;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        line-height: 50px;
+        content: url("../../assets/Icon_download.png");
+      }
+    }
+  }
 }
 
 .event_download_picture {
   display: flex;
   justify-content: left;
   margin-top: 20px;
+
+  > img {
+    width: 100px;
+    height: 100px;
+    margin-left: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+
+    &:first-child {
+      margin-left: 60px;
+    }
+  }
 }
 
-.event_download_picture > img:first-child {
-  margin-left: 60px;
-}
-
-.event_download_picture > img {
-  width: 100px;
-  height: 100px;
-  margin-left: 10px;
-  border-radius: 8px;
-  cursor: pointer;
-}
 </style>

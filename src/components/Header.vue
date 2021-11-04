@@ -3,7 +3,8 @@ header.website_redesign_header
   .main_menu
     .website_redesign_logo
       button#burger.openbtn ☰
-      span.website_redesign_logo_text Website Redesign
+      span.website_redesign_logo_text
+       | Website Redesign
       .meatball_circle
         span.meatball_dot
         span.meatball_dot
@@ -68,31 +69,31 @@ export default defineComponent({
     margin-left: 30px;
     align-items: center;
     justify-content: center;
+
+    &_text {
+      font-family: Helvetica, sans-serif;
+      font-size: 32px;
+      color: #131313;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+
+      &::before {
+        width: 40px;
+        height: 40px;
+        background-color: #ffc200;
+        border-radius: 10px;
+        background-image: url("../assets/Shapes@2x.png");
+        content: "";
+        background-size: 40px 40px;
+        display: inline-block;
+        margin-right: 15px;
+    }
+  }
 }
 
 .openbtn {
     display: none;
-}
-
-.website_redesign_logo_text {
-    font-family: Helvetica, sans-serif;
-    font-size: 32px;
-    color: #131313;
-    white-space: nowrap;
-    display: flex;
-    align-items: center;
-}
-
-.website_redesign_logo_text::before {
-    width: 40px;
-    height: 40px;
-    background-color: #ffc200;
-    border-radius: 10px;
-    background-image: url("../assets/Shapes@2x.png");
-    content: "";
-    background-size: 40px 40px;
-    display: inline-block;
-    margin-right: 15px;
 }
 
 .meatball_circle {
@@ -114,6 +115,16 @@ export default defineComponent({
     justify-content: space-between;
 }
 
+%active-shared {
+  font-family: Helvetica, sans-serif;
+    font-size: 16px;
+    color: #696969;
+    text-decoration: none;
+    border-bottom-style: solid;
+    border-color: #ffc200;
+    padding-bottom: 12px;
+}
+
 .item {
     opacity: 0.7;
     font-family: Helvetica, sans-serif;
@@ -124,17 +135,14 @@ export default defineComponent({
       text-decoration: none;
       color: #131313;
     }
+
+  &:hover {
+    @extend %active-shared;
+  }
 }
 
-.item:hover,
 .active {
-    font-family: Helvetica, sans-serif;
-    font-size: 16px;
-    color: #696969;
-    text-decoration: none;
-    border-bottom-style: solid;
-    border-color: #ffc200;
-    padding-bottom: 12px;
+  @extend %active-shared;
 }
 
 .members {
@@ -142,53 +150,52 @@ export default defineComponent({
     margin-left: 471px;
     align-items: center;
     margin-bottom: 15px;
-}
 
-.members_photo {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-}
+    &_photo {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      img {
+        width: 30px;
+         height: 30px;
+        border-radius: 50%;
+         margin-left: 5px;
+      }
+    }
 
-.members_photo img {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    margin-left: 5px;
-}
+    &_share {
+      margin-left: 15px;
+      border-radius: 12px;
+      border: none;
+      text-decoration: none;
+      height: 30px;
+      width: 67px;
+      cursor: pointer;
+      font-family: Helvetica, sans-serif;
+      font-size: 14px;
+      color: #131313;
+    }
 
-.members_share {
-    margin-left: 15px;
-    border-radius: 12px;
-    border: none;
-    text-decoration: none;
-    height: 30px;
-    width: 67px;
-    cursor: pointer;
-    font-family: Helvetica, sans-serif;
-    font-size: 14px;
-    color: #131313;
-}
+    &_chat {
+      display: flex;
+      align-items: center;
+      margin-left: 15px;
+      border-radius: 12px;
+      border: none;
+      text-decoration: none;
+      height: 30px;
+      width: 67px;
+      cursor: pointer;
+      font-family: Helvetica, sans-serif;
+      font-size: 14px;
+      color: #ffc200;
+      background: #fff8dd;
 
-.members_chat::before {
-    content: url("../assets/Combined\ Shape@1x.svg");
-    padding-right: 5px;
-}
-
-.members_chat {
-    display: flex;
-    align-items: center;
-    margin-left: 15px;
-    border-radius: 12px;
-    border: none;
-    text-decoration: none;
-    height: 30px;
-    width: 67px;
-    cursor: pointer;
-    font-family: Helvetica, sans-serif;
-    font-size: 14px;
-    color: #ffc200;
-    background: #fff8dd;
+      &::before {
+        content: url("../assets/Combined\ Shape@1x.svg");
+        padding-right: 5px;
+    }
+  }
 }
 </style>

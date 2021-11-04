@@ -25,42 +25,44 @@ export default defineComponent({
 ul {
   margin: 0;
   padding: 0;
-}
 
-ul ol {
-  cursor: pointer;
-  position: relative;
-  padding: 12px 8px 12px 40px;
-  background: #eee;
-  font-size: 18px;
-  transition: 0.2s;
-}
+  ol {
+    cursor: pointer;
+    position: relative;
+    padding: 12px 8px 12px 40px;
+    background: #eee;
+    font-size: 18px;
+    transition: 0.2s;
 
-ul ol:nth-child(odd) {
-  background: #f9f9f9;
-}
+    &:nth-child(odd) {
+      background: #f9f9f9;
+    }
 
-ul ol:hover {
-  background: #ddd;
-}
+    &:hover {
+      background: #ddd;
+    }
 
-ul ol.checked {
-  background: #888;
-  color: #fff;
-  text-decoration: line-through;
-}
+    &checked {
+      background: #888;
+      color: #fff;
+      text-decoration: line-through;
 
-ul ol.checked::before {
-  content: '';
-  position: absolute;
-  border-color: #fff;
-  border-style: solid;
-  border-width: 0 2px 2px 0;
-  top: 10px;
-  left: 16px;
-  transform: rotate(45deg);
-  height: 15px;
-  width: 7px;
+      &::before {
+        content: '';
+        position: absolute;
+        border-color: #fff;
+        border-style: solid;
+        border-width: 0 2px 2px 0;
+        top: 10px;
+        left: 16px;
+        transform: rotate(45deg);
+        height: 15px;
+        width: 7px;
+      }
+    }
+
+  }
+
 }
 
 .close {
@@ -68,11 +70,11 @@ ul ol.checked::before {
   right: 0;
   top: 0;
   padding: 12px 16px 12px 16px;
-}
 
-.close:hover {
-  background-color: #f44336;
-  color: white;
+  &:hover {
+    background-color: #f44336;
+    color: white;
+  }
 }
 
 .header {
@@ -83,12 +85,12 @@ ul ol.checked::before {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-}
 
-.header:after {
-  content: "";
-  display: table;
-  clear: both;
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
 }
 
 input {
@@ -115,9 +117,10 @@ input {
   border-radius: 0;
   margin-top: 5px;
   margin-bottom: 5px;
+
+  &:hover {
+    background-color: #bbb;
+  }
 }
 
-.addBtn:hover {
-  background-color: #bbb;
-}
 </style>
