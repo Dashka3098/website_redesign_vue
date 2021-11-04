@@ -33,12 +33,12 @@ export default defineComponent({
   display: table;
   transition: opacity 0.3s ease;
 
-  &_wrapper {
+  &-wrapper {
     display: table-cell;
     vertical-align: middle;
   }
 
-  &_container {
+  &-container {
     width: 300px;
     margin: 0 auto;
     padding: 20px 30px;
@@ -52,13 +52,15 @@ export default defineComponent({
     text-align: center;
     overflow-y: hidden;
     color: #fff8dd;
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
   }
 
-  &_body {
+  &-body {
     margin: 20px 0;
   }
 
-  &_default-button {
+  &-default-button {
     float: right;
     border-radius: 5px;
     font-family: Helvetica, sans-serif;
@@ -69,17 +71,6 @@ export default defineComponent({
     margin-left: 10px;
     margin-top: 5px;
     cursor: pointer;
-  }
-
-  &_enter,
-  &_leave-active {
-    opacity: 0;
-  }
-
-  &_enter &_container,
-  &_leave-active &_container {
-    -webkit-transform: scale(1.1);
-    transform: scale(1.1);
   }
 }
 </style>

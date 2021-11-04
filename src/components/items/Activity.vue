@@ -7,7 +7,7 @@
       | {{ eventDoneText }}
   .event_message
     span.event_text
-      | {{ eventMessegeText }}
+      | {{ eventMessageText }}
     .event_message_note
       span
         | {{eventMessageNote}}
@@ -30,7 +30,7 @@ export default defineComponent({
   data() {
     return {
       eventDoneText: 'Darika Samak mark as done Listing on Product Hunt so that\n we can reach as many potential users',
-      eventMessegeText: 'Emilee Simchenko commented on Account for teams and\n personal in bottom style',
+      eventMessageText: 'Emilee Simchenko commented on Account for teams and\n personal in bottom style',
       eventMessageNote: 'During a project build, it is necessary to evaluate the product design and\n development against project requirements and outcomes',
       eventDownloadMain: 'Darika Samak uploaded 4 files on An option to search in\n current projects or in all projects',
 
@@ -64,7 +64,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-.events_notofication {
+.events_notification {
   display: flex;
   flex-direction: column;
   padding-left: 30px;
