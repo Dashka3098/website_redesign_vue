@@ -71,10 +71,7 @@ export default defineComponent({
     cursor: pointer;
   }
 
-  &_enter {
-    opacity: 0;
-  }
-
+  &_enter,
   &_leave-active {
     opacity: 0;
   }

@@ -15,9 +15,9 @@ header.website_redesign_header
           | {{ item }}
   .members
     .members_photo
-      img(src='../assets/woman_1.jpg' alt='woman_1')
-      img(src='../assets/woman_2.jpg' alt='woman_2')
-      img(src='../assets/woman_3.jpg' alt='woman_3')
+      img(src='~@/assets/woman_1.jpg' alt='woman_1')
+      img(src='~@/assets/woman_2.jpg' alt='woman_2')
+      img(src='~@/assets/woman_3.jpg' alt='woman_3')
     button.members_share Share
     button.members_chat Chat
 </template>
@@ -83,7 +83,7 @@ export default defineComponent({
         height: 40px;
         background-color: #ffc200;
         border-radius: 10px;
-        background-image: url("../assets/Shapes@2x.png");
+        background-image: url("~@/assets/Shapes@2x.png");
         content: "";
         background-size: 40px 40px;
         display: inline-block;
@@ -136,9 +136,9 @@ export default defineComponent({
       color: #131313;
     }
 
-  &:hover {
-    @extend %active-shared;
-  }
+    &:hover {
+      @extend %active-shared;
+    }
 }
 
 .active {
@@ -193,7 +193,7 @@ export default defineComponent({
       background: #fff8dd;
 
       &::before {
-        content: url("../assets/Combined\ Shape@1x.svg");
+        content: url("~@/assets/Combined\ Shape@1x.svg");
         padding-right: 5px;
     }
   }

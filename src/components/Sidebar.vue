@@ -6,7 +6,7 @@
         | PROJECTUS
     button.header_search
   .profile
-    img.profile_image(src='../assets/photo.jpg' alt='photo')
+    img.profile_image(src='~@/assets/photo.jpg' alt='photo')
     .profile_text
       span.profile_text_name
        | {{ profileName }}
@@ -93,7 +93,7 @@ export default defineComponent({
     align-items: center;
 
     &::before {
-      content: url("../assets/Logo@3x.svg");
+      content: url("~@/assets/Logo@3x.svg");
       padding-right: 13px;
     }
   }
@@ -109,7 +109,7 @@ export default defineComponent({
   }
 
   &_search::after {
-    content: url("../assets/Search@3x.svg");
+    content: url("~@/assets/Search@3x.svg");
   }
 
 }

@@ -4,34 +4,22 @@
     | TODAY
   .event_done
     span.event_text
-      | Darika Samak mark as done Listing on Product Hunt so that
-      br
-      | we can reach as many potential users
+      | {{ eventDoneText }}
   .event_message
     span.event_text
-      | Emilee Simchenko commented on Account for teams and
-      br
-      | personal in bottom style
+      | {{ eventMessegeText }}
     .event_message_note
       span
-        | During a project build, it is necessary to evaluate the product design
-        br
-        | and development against project requirements and outcomes
+        | {{eventMessageNote}}
   .event_download
     .event_download_main
       span.event_text
-        | Darika Samak uploaded 4 files on An option to search in
-        br
-        | current projects or in all projects
+        | {{ eventDownloadMain }}
     #event_download_picture.event_download_picture
       img(v-for='image in images' :key='image.link' :src='image.link' :alt='image.alt')
 .event_time
-  span
-    | 8:40 PM
-  span
-    | 7:32 PM
-  span
-    | 6:02 PM
+  span(v-for='time in times' :key='time')
+    | {{ time }}
 </template>
 
 <script lang="ts">
@@ -41,10 +29,21 @@ export default defineComponent({
   name: 'Activity',
   data() {
     return {
+      eventDoneText: 'Darika Samak mark as done Listing on Product Hunt so that\n we can reach as many potential users',
+      eventMessegeText: 'Emilee Simchenko commented on Account for teams and\n personal in bottom style',
+      eventMessageNote: 'During a project build, it is necessary to evaluate the product design and\n development against project requirements and outcomes',
+      eventDownloadMain: 'Darika Samak uploaded 4 files on An option to search in\n current projects or in all projects',
+
+      times: [
+        '8:40 PM',
+        '7:32 PM',
+        '6:02 PM',
+      ],
+
       images: [
         {
           link: 'https://blog.ostrovok.ru/wp-content/uploads/2019/08/ostrovok-filters-4-10.46.2238.jpg',
-          alt: 'Italic',
+          alt: 'Italia',
         },
         {
           link: 'http://photo.baliforum.ru/u/i/2018/06/15/5b2363c8217a5bF4IHC.jpg',
@@ -100,6 +99,7 @@ export default defineComponent({
   color: #131313;
   opacity: 0.5;
   margin-top: 35px;
+  text-align: left;
 }
 
 .event_done {
@@ -122,7 +122,7 @@ export default defineComponent({
       height: 40px;
       text-align: center;
       line-height: 40px;
-      content: url("../../assets/Icon@3x.svg");
+      content: url("~@/assets/Icon@3x.svg");
     }
   }
 }
@@ -143,6 +143,8 @@ export default defineComponent({
   color: #131313;
   line-height: 20px;
   margin-left: 20px;
+  white-space: pre-line;
+  text-align: left;
 }
 
 .event_message {
@@ -165,7 +167,7 @@ export default defineComponent({
       height: 40px;
       text-align: center;
       line-height: 50px;
-      content: url("../../assets/Icon_message.png");
+      content: url("~@/assets/Icon_message.png");
     }
   }
 }
@@ -180,6 +182,8 @@ export default defineComponent({
   justify-content: center;
   align-items: center;
   margin-top: 20px;
+  white-space: pre-line;
+  text-align: left;
 
   > span {
     font-family: Helvetica, sans-serif;
@@ -212,7 +216,7 @@ export default defineComponent({
         height: 40px;
         text-align: center;
         line-height: 50px;
-        content: url("../../assets/Icon_download.png");
+        content: url("~@/assets/Icon_download.png");
       }
     }
   }

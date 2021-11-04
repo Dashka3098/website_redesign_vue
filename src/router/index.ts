@@ -32,6 +32,10 @@ const routes: Array<RouteRecordRaw> = [
         path: 'files',
         component: Files,
       },
+      {
+        path: '',
+        component: Activity,
+      },
     ],
   },
 ];
