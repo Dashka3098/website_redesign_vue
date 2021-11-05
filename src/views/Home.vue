@@ -1,15 +1,11 @@
-<template>
-  <div>
-    <Sidebar></Sidebar>
-    <div class="main" id="main">
-      <Header></Header>
-      <div class="website_redesign_body">
-        <div class="events">
-          <router-view></router-view>
-        </div>
-      </div>
-    </div>
-  </div>
+<template lang="pug">
+div
+  Sidebar
+  #main.main
+    Header
+    .website_redesign_body
+      .events
+        router-view
 </template>
 
 <script lang="ts">
