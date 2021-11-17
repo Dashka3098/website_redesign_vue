@@ -43,7 +43,6 @@ export default defineComponent({
       const current = document.getElementsByClassName('active');
       current[0].classList.remove('active');
       event.currentTarget.classList.add('active');
-      console.log(this.$route.path);
     },
   },
 });

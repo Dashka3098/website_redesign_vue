@@ -55,6 +55,7 @@ export default defineComponent({
     margin-bottom: 8px;
     color: #ffffff;
   }
+
   h2 {
     font-family: 'Quicksand', sans-serif;
     font-size: 26px;
@@ -62,6 +63,7 @@ export default defineComponent({
     font-weight: 700;
     color: #9b9b9b;
   }
+
   a {
     font-family: 'Quicksand', sans-serif;
     font-size: 14px;

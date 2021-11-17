@@ -5,7 +5,7 @@ import Activity from '@/components/items/Activity.vue';
 import Calendar from '@/components/items/Calendar.vue';
 import Kanban from '@/components/items/Kanban.vue';
 import Files from '@/components/items/Files.vue';
-import PageNotFound from '@/components/PageNotFound.vue';
+import PageNotFound from '@/components/errors/PageNotFound.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {

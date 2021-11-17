@@ -36,7 +36,7 @@ export default defineComponent({
   },
   data() {
     return {
-      openTasks: 1,
+      openTasks: 11,
       completedTasks: 372,
       showModal: false,
       profileName: 'Jean Gonzales',
