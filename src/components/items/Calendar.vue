@@ -7,7 +7,7 @@ import { defineComponent } from 'vue';
 import ComingSoon from '@/components/helper/ComingSoon.vue';
 
 export default defineComponent({
-  name: 'Tasks',
+  name: 'Calendar',
   components: {
     ComingSoon,
   },
