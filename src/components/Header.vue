@@ -10,7 +10,7 @@ header.website_redesign_header
         span.meatball_dot
         span.meatball_dot
     .menu_items
-      .item(v-for='item in items' :key='item' v-on:click='activeMenu' :class="{ active: item === 'Activity' }")
+      .item(v-for='item in items' :key='item' v-on:click='activeMenu' :class="{ active: item.toLowerCase() === $route.path.slice(1) }")
         router-link(:to='{path: item.toLowerCase()}')
           | {{ item }}
   .members
@@ -43,6 +43,7 @@ export default defineComponent({
       const current = document.getElementsByClassName('active');
       current[0].classList.remove('active');
       event.currentTarget.classList.add('active');
+      console.log(this.$route.path);
     },
   },
 });

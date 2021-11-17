@@ -12,7 +12,7 @@
         | {{ completedTasks }}
       span.tasks_completed_name
         | Completed Tasks
-    .tasks_open
+    router-link(:to='{path: "tasks"}' :class="{disabled: openTasks === 0}").tasks_open
       span#tasks_open_number.tasks_open_number
         | {{ openTasks }}
       span.tasks_open_name
@@ -36,7 +36,7 @@ export default defineComponent({
   },
   data() {
     return {
-      openTasks: 11,
+      openTasks: 1,
       completedTasks: 372,
       showModal: false,
       profileName: 'Jean Gonzales',
@@ -56,6 +56,10 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
 .sidebar {
   position: absolute;
   background-color: #000000;
@@ -108,6 +112,7 @@ export default defineComponent({
   &_open {
     display: flex;
     flex-direction: column;
+    text-decoration: none;
   }
 
   &_completed {
