@@ -1,12 +1,18 @@
 <template lang="pug">
 .tasks
-  #myDIV.header
-    h2 My To Do List
-    input#myInput(type='text' placeholder='Title...' v-model='taskName')
-    span.addBtn(@click='newTask()')
-      | Add
-  ul#myUL
-    task(v-for='task in tasks' :key='task.id' :task='task')
+  form#taskList(@submit="checkForm")
+    #myDIV.header
+      h2 My To Do List
+      .tasksForm
+        .tasksFormName
+          label.label-name Tasks' name
+          input#myInput(type='text' placeholder='Title...' v-model='taskName' required)
+        .tasksFormDescription
+          label.label-description Description
+          input#myInput(type='text' placeholder='Title...' v-model='taskDescription' required)
+      button.addBtn(@click='newTask()' :class="{disabled: taskName.length && taskDescription.length === 0}") Add
+    ul#myUL
+      task(v-for='(task, index) in tasks' :key='task.id' :task='task' @remove="tasks.splice(index, 1)")
 </template>
 
 <script lang="ts">
@@ -33,6 +39,8 @@ export default defineComponent({
         },
       ],
       taskName: '',
+      deleteTask: '',
+      taskDescription: '',
     };
   },
   methods: {
@@ -41,10 +49,11 @@ export default defineComponent({
       this.tasks.push({
         id,
         name: this.taskName,
-        description: 'task2',
+        description: this.taskDescription,
         date: '2021-11-11',
       });
       this.taskName = '';
+      this.taskDescription = '';
     },
   },
 });
@@ -98,6 +107,30 @@ ul ol {
   }
 }
 
+.tasksForm {
+  display:flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.tasksFormName{
+  display:flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.tasksFormDescription {
+  display:flex;
+  justify-content: space-between;
+}
+
+.label-name,
+.label-description {
+  text-align: center;
+  margin-left: 10px;
+  margin-top: 5px;
+  }
+
 .close {
   position: absolute;
   right: 0;
@@ -150,10 +183,16 @@ input {
   border-radius: 0;
   margin-top: 5px;
   margin-bottom: 5px;
+  margin-left: 30px;
 
   &:hover {
     background-color: #bbb;
   }
 }
 
+.disabled {
+  pointer-events: none;
+  background: #ffc200;
+  color: black;
+}
 </style>

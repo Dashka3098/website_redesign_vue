@@ -1,5 +1,8 @@
 <template lang="pug">
-ol  {{ task.name }}
+.task-field
+  ol  {{ task.name }}
+  ol {{ task.description }}
+  button.btn-remove(@click="$emit('remove')") Remove
 </template>
 
 <script lang="ts">
@@ -15,10 +18,14 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
+.task-field {
+  display:flex;
+  justify-content: space-between;
+  background: #f9f9f9;
+}
 .tasks {
   display: flex;
   flex-direction: column;
-  width: 100%;
   height: 100%;
 }
 
@@ -33,6 +40,7 @@ ul {
     background: #eee;
     font-size: 18px;
     transition: 0.2s;
+    text-align: start;
 
     &:nth-child(odd) {
       background: #f9f9f9;
@@ -123,4 +131,18 @@ input {
   }
 }
 
+.btn-remove {
+    border: 1px solid #2a2f36;
+    font-size: 12px;
+    border: 2px solid #2a2f36;
+    background-color: #333333;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 12px;
+    outline: none;
+    transition: 0.2s;
+    cursor: pointer;
+    margin: 5px 10px 5px 5px;
+}
 </style>
