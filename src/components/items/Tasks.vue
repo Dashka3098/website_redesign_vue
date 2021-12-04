@@ -1,12 +1,21 @@
 <template lang="pug">
 .tasks
-  #myDIV.header
-    h2 My To Do List
-    input#myInput(type='text' placeholder='Title...' v-model='taskName')
-    span.addBtn(@click='newTask()')
-      | Add
-  ul#myUL
-    task(v-for='task in tasks' :key='task.id' :task='task')
+  form#taskList(@submit="checkForm")
+    #myDIV.header
+      h2 My To Do List
+      .tasksForm
+        .tasksFormName
+          label.label-name Tasks' name
+          input#myInput(type='text' placeholder='Title...' v-model='taskName' required)
+        .tasksFormDescription
+          label.label-description Description
+          input#myInput(type='text' placeholder='Title...' v-model='taskDescription' required)
+        .tasksFormDate
+          label.label-date Date of finish task
+          input#myInput(type='date' placeholder='Title...' v-model='taskDate' required)
+      button.addBtn(@click='newTask()' :class="{disabled: taskName.length === 0 && taskDescription.length === 0 && taskDate.length === 0}") Add
+    ul#myUL
+      task(v-for='(task, index) in tasks' :key='task.id' :task='task' @remove="tasks.splice(index, 1)")
 </template>
 
 <script lang="ts">
@@ -33,6 +42,8 @@ export default defineComponent({
         },
       ],
       taskName: '',
+      taskDescription: '',
+      taskDate: '',
     };
   },
   methods: {
@@ -41,10 +52,12 @@ export default defineComponent({
       this.tasks.push({
         id,
         name: this.taskName,
-        description: 'task2',
-        date: '2021-11-11',
+        description: this.taskDescription,
+        date: this.taskDate,
       });
       this.taskName = '';
+      this.taskDescription = '';
+      this.taskDate = '';
     },
   },
 });
@@ -96,6 +109,27 @@ ul ol {
       width: 7px;
     }
   }
+}
+
+.tasksForm {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.tasksFormName,
+.tasksFormDescription ,
+.tasksFormDate {
+  display:flex;
+  margin: 3px 3px 3px 3px;
+}
+
+.label-name,
+.label-description,
+.label-date {
+  text-align: left;
+  margin-left: 10px;
+  width: 100px;
 }
 
 .close {
@@ -150,10 +184,16 @@ input {
   border-radius: 0;
   margin-top: 5px;
   margin-bottom: 5px;
+  margin-left: 30px;
 
   &:hover {
     background-color: #bbb;
   }
 }
 
+.disabled {
+  pointer-events: none;
+  background: #ffc200;
+  color: black;
+}
 </style>

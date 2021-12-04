@@ -49,10 +49,10 @@ export default defineComponent({
 }
 
 .text:hover span:nth-child(odd) {
-  transform: skewY(15deg);
+  transform: skewY(10deg);
 }
 
 .text:hover span:nth-child(even) {
-  transform: skewY(-15deg);
+  transform: skewY(-10deg);
 }
 </style>
