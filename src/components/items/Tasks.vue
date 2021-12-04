@@ -10,7 +10,10 @@
         .tasksFormDescription
           label.label-description Description
           input#myInput(type='text' placeholder='Title...' v-model='taskDescription' required)
-      button.addBtn(@click='newTask()' :class="{disabled: taskName.length && taskDescription.length === 0}") Add
+        .tasksFormDate
+          label.label-date Date of finish task
+          input#myInput(type='date' placeholder='Title...' v-model='taskDate' required)
+      button.addBtn(@click='newTask()' :class="{disabled: taskName.length === 0 && taskDescription.length === 0 && taskDate.length === 0}") Add
     ul#myUL
       task(v-for='(task, index) in tasks' :key='task.id' :task='task' @remove="tasks.splice(index, 1)")
 </template>
@@ -39,8 +42,8 @@ export default defineComponent({
         },
       ],
       taskName: '',
-      deleteTask: '',
       taskDescription: '',
+      taskDate: '',
     };
   },
   methods: {
@@ -50,10 +53,11 @@ export default defineComponent({
         id,
         name: this.taskName,
         description: this.taskDescription,
-        date: '2021-11-11',
+        date: this.taskDate,
       });
       this.taskName = '';
       this.taskDescription = '';
+      this.taskDate = '';
     },
   },
 });
@@ -108,28 +112,25 @@ ul ol {
 }
 
 .tasksForm {
-  display:flex;
+  display: flex;
   flex-direction: column;
   width: 100%;
 }
 
-.tasksFormName{
+.tasksFormName,
+.tasksFormDescription ,
+.tasksFormDate {
   display:flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
-}
-
-.tasksFormDescription {
-  display:flex;
-  justify-content: space-between;
+  margin: 3px 3px 3px 3px;
 }
 
 .label-name,
-.label-description {
-  text-align: center;
+.label-description,
+.label-date {
+  text-align: left;
   margin-left: 10px;
-  margin-top: 5px;
-  }
+  width: 100px;
+}
 
 .close {
   position: absolute;

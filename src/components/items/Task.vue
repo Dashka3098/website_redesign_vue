@@ -2,6 +2,7 @@
 .task-field
   ol  {{ task.name }}
   ol {{ task.description }}
+  ol {{ task.date }}
   button.btn-remove(@click="$emit('remove')") Remove
 </template>
 
